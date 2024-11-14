@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RetournonsLeMonde - Protestation Agricole</title>
-    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <!-- Police de style Impact -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,13 +16,23 @@
                 extend: {
                     colors: {
                         fnsea: '#006838',
+                    },
+                    fontFamily: {
+                        impact: ['Anton', 'Impact', 'Helvetica', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        .impact-text {
+            font-family: 'Anton', Impact, Helvetica, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 min-h-screen p-2 sm:p-4">
+<body class="bg-gray-100 min-h-screen p-4">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -69,52 +81,53 @@
             };
 
             return (
-                <div className="w-full max-w-3xl mx-auto">
-                    {/* En-tête */}
-                    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-4">
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+                <div className="max-w-md mx-auto md:max-w-2xl lg:max-w-3xl">
+                    <div className="bg-white rounded-lg shadow p-4 mb-4">
+                        <div className="flex flex-col items-center mb-4">
                             <img 
                                 src="./FNSEA.png"
                                 alt="Logo FNSEA" 
-                                className="h-16 sm:h-20"
+                                className="h-16 mb-2"
                             />
-                            <h1 className="text-2xl sm:text-4xl font-bold text-fnsea text-center">
+                            <h1 className="impact-text text-3xl md:text-4xl text-fnsea text-center tracking-wide mb-2">
                                 RetournonsLeMonde
                             </h1>
+                            <p className="impact-text text-lg md:text-xl text-fnsea text-center tracking-wide">
+                                Ensemble, retournons la situation
+                            </p>
                         </div>
-                        <p className="text-center text-fnsea text-sm sm:text-base mb-2 sm:mb-4 px-2">
+                        <p className="text-center text-fnsea impact-text text-sm tracking-wide">
                             Retournez votre texte en signe de protestation pour soutenir nos agriculteurs
                         </p>
                     </div>
 
-                    {/* Outil de conversion */}
-                    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                    <div className="bg-white rounded-lg shadow p-4">
                         <div className="space-y-4">
-                            <div className="space-y-2">
-                                <label className="block text-sm font-medium text-fnsea">
+                            <div>
+                                <label className="block mb-2 impact-text text-fnsea">
                                     Votre message de soutien :
                                 </label>
                                 <textarea
                                     value={inputText}
                                     onChange={handleTextChange}
-                                    className="w-full h-28 sm:h-32 p-2 border border-fnsea rounded-md font-mono text-sm sm:text-base"
-                                    placeholder="Écrivez ou collez votre texte ici pour le retourner..."
+                                    className="w-full h-32 p-2 border border-fnsea rounded"
+                                    placeholder="Écrivez ou collez votre texte ici..."
                                 />
                             </div>
                             
-                            <div className="space-y-2">
-                                <label className="block text-sm font-medium text-fnsea">
-                                    Message retourné pour vos réseaux sociaux :
+                            <div>
+                                <label className="block mb-2 impact-text text-fnsea">
+                                    Message retourné :
                                 </label>
                                 <div className="relative">
                                     <textarea
                                         value={getFlippedText()}
                                         readOnly
-                                        className="w-full h-28 sm:h-32 p-2 border border-fnsea rounded-md bg-gray-50 font-mono text-sm sm:text-base"
+                                        className="w-full h-32 p-2 border border-fnsea rounded bg-gray-50"
                                     />
                                     <button
                                         onClick={handleCopyClick}
-                                        className="absolute right-2 bottom-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-fnsea text-white text-sm sm:text-base rounded-md hover:bg-fnsea/80 transition-colors"
+                                        className="absolute right-2 bottom-2 px-4 py-2 bg-fnsea text-white rounded hover:bg-opacity-90 impact-text"
                                     >
                                         Copier
                                     </button>
@@ -123,9 +136,10 @@
                         </div>
                     </div>
 
-                    {/* Footer */}
-                    <div className="mt-4 text-center text-xs sm:text-sm text-fnsea">
-                        <p>Changez votre profil en soutien au monde agricole.</p>
+                    <div className="mt-4 text-center">
+                        <p className="impact-text text-sm text-fnsea">
+                            Changez votre profil en soutien au monde agricole
+                        </p>
                     </div>
                 </div>
             );
