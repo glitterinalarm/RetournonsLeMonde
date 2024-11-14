@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RetournonsLeMonde - Protestation Agricole</title>
-    <!-- Changement de la police pour Archivo Black -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -32,11 +31,11 @@
         .impact-title {
             font-family: 'Archivo Black', Impact, Helvetica, sans-serif;
             text-transform: uppercase;
-            letter-spacing: 0.03em; /* Légèrement plus espacé pour les titres */
+            letter-spacing: 0.03em;
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen p-4">
+<body class="bg-gray-100 min-h-screen p-2 sm:p-4">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -62,8 +61,7 @@
                 '<': '>', '>': '<', '&': '⅋', '_': '‾',
                 ' ': ' ', '\n': '\n', '\r': '\r', '\t': '\t'
             };
-
-            const handleTextChange = (e) => {
+const handleTextChange = (e) => {
                 setInputText(e.target.value);
             };
 
@@ -86,52 +84,49 @@
 
             return (
                 <div className="max-w-md mx-auto md:max-w-2xl lg:max-w-3xl">
-                    <div className="bg-white rounded-lg shadow p-4 mb-4">
-                        <div className="flex flex-col items-center mb-4">
+                    <div className="bg-white rounded-lg shadow p-2 sm:p-4 mb-4">
+                        <div className="flex flex-col items-center mb-2 sm:mb-4">
                             <img 
                                 src="./FNSEA.png"
                                 alt="Logo FNSEA" 
-                                className="h-16 mb-2"
+                                className="h-12 sm:h-16 mb-2"
                             />
-                            <h1 className="impact-title text-3xl md:text-4xl text-fnsea text-center tracking-wide mb-2">
+                            <h1 className="impact-title text-xl sm:text-3xl md:text-4xl text-fnsea text-center tracking-wide mb-2">
                                 RetournonsLeMonde
                             </h1>
-                            <p className="impact-text text-lg md:text-xl text-fnsea text-center tracking-wide">
-                                Ensemble, retournons la situation
+                            <p className="text-center text-fnsea text-xs sm:text-sm tracking-wide px-2">
+                                Retournez votre texte en signe de protestation pour soutenir nos agriculteurs
                             </p>
                         </div>
-                        <p className="text-center text-fnsea impact-text text-sm tracking-wide">
-                            Retournez votre texte en signe de protestation pour soutenir nos agriculteurs
-                        </p>
                     </div>
 
-                    <div className="bg-white rounded-lg shadow p-4">
-                        <div className="space-y-4">
+                    <div className="bg-white rounded-lg shadow p-2 sm:p-4">
+                        <div className="space-y-2 sm:space-y-4">
                             <div>
-                                <label className="block mb-2 impact-text text-fnsea">
+                                <label className="block mb-1 sm:mb-2 impact-text text-fnsea text-sm sm:text-base">
                                     Votre message de soutien :
                                 </label>
                                 <textarea
                                     value={inputText}
                                     onChange={handleTextChange}
-                                    className="w-full h-32 p-2 border border-fnsea rounded"
+                                    className="w-full h-24 sm:h-32 p-2 border border-fnsea rounded text-sm"
                                     placeholder="Écrivez ou collez votre texte ici..."
                                 />
                             </div>
                             
                             <div>
-                                <label className="block mb-2 impact-text text-fnsea">
+                                <label className="block mb-1 sm:mb-2 impact-text text-fnsea text-sm sm:text-base">
                                     Message retourné :
                                 </label>
                                 <div className="relative">
                                     <textarea
                                         value={getFlippedText()}
                                         readOnly
-                                        className="w-full h-32 p-2 border border-fnsea rounded bg-gray-50"
+                                        className="w-full h-24 sm:h-32 p-2 border border-fnsea rounded bg-gray-50 text-sm"
                                     />
                                     <button
                                         onClick={handleCopyClick}
-                                        className="absolute right-2 bottom-2 px-4 py-2 bg-fnsea text-white rounded hover:bg-opacity-90 impact-title"
+                                        className="absolute right-2 bottom-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-fnsea text-white rounded hover:bg-opacity-90 impact-title text-sm"
                                     >
                                         COPIER
                                     </button>
@@ -140,8 +135,11 @@
                         </div>
                     </div>
 
-                    <div className="mt-4 text-center">
-                        <p className="impact-text text-sm text-fnsea">
+                    <div className="mt-2 sm:mt-4 text-center space-y-1 sm:space-y-2">
+                        <p className="impact-text text-xs sm:text-sm text-fnsea">
+                            Ensemble, retournons la situation
+                        </p>
+                        <p className="impact-text text-xs sm:text-sm text-fnsea">
                             Changez votre profil en soutien au monde agricole
                         </p>
                     </div>
