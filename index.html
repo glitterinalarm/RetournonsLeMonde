@@ -1,171 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RetournonsLeMonde - Protestation Agricole</title>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        fnsea: '#006838',
-                    },
-                    fontFamily: {
-                        title: ['Archivo Black', 'Impact', 'Helvetica', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .impact-text {
-            font-family: 'Archivo Black', Impact, Helvetica, sans-serif;
-            letter-spacing: 0.02em;
-        }
-        .impact-title {
-            font-family: 'Archivo Black', Impact, Helvetica, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>RetournonsLeMonde - Protestation Agricole</title>
+   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+       tailwind.config = {
+           theme: {
+               extend: {
+                   colors: {
+                       fnsea: '#006838',
+                   },
+                   fontFamily: {
+                       title: ['Archivo Black', 'Impact', 'Helvetica', 'sans-serif'],
+                   }
+               }
+           }
+       }
+   </script>
+   <style>
+       .impact-text {
+           font-family: 'Archivo Black', Impact, Helvetica, sans-serif;
+           letter-spacing: 0.02em;
+       }
+       .impact-title {
+           font-family: 'Archivo Black', Impact, Helvetica, sans-serif;
+           text-transform: uppercase;
+           letter-spacing: 0.03em;
+       }
+   </style>
 </head>
 <body class="bg-gray-100 min-h-screen p-2 sm:p-4">
-    <div id="root"></div>
+   <div id="root"></div>
 
-    <script type="text/babel">
-        const TextReverser = () => {
-            const [inputText, setInputText] = React.useState('');
+   <script type="text/babel">
+       const TextReverser = () => {
+           const [inputText, setInputText] = React.useState('');
 
 const flipTable = {
-    // Lettres minuscules standard
-    'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ǝ',
-    'f': 'ɟ', 'g': 'ƃ', 'h': 'ɥ', 'i': 'ı', 'j': 'ɾ',
-    'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u', 'o': 'o',
-    'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 's', 't': 'ʇ',
-    'u': 'n', 'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ',
-    'z': 'z',
+   // Lettres minuscules standard
+   'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ǝ',
+   'f': 'ɟ', 'g': 'ƃ', 'h': 'ɥ', 'i': 'ı', 'j': 'ɾ',
+   'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u', 'o': 'o',
+   'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 's', 't': 'ʇ',
+   'u': 'n', 'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ',
+   'z': 'z',
 
-    // Lettres majuscules
-    'A': '∀', 'B': 'q', 'C': 'Ɔ', 'D': 'p', 'E': 'Ǝ',
-    'F': 'Ⅎ', 'G': '9', 'H': 'H', 'I': 'I', 'J': 'ſ',
-    'K': 'ʞ', 'L': '˥', 'M': 'W', 'N': 'u', 'O': 'O',
-    'P': 'Ԁ', 'Q': 'b', 'R': 'ɹ', 'S': 'S', 'T': '┴',
-    'U': '∩', 'V': 'Λ', 'W': 'M', 'X': 'X', 'Y': '⅄',
-    'Z': 'Z',
+   // Lettres majuscules
+   'A': '∀', 'B': 'B', 'C': 'Ɔ', 'D': 'D', 'E': 'Ǝ',
+   'F': 'Ⅎ', 'G': 'פ', 'H': 'H', 'I': 'I', 'J': 'ſ',
+   'K': 'K', 'L': '˥', 'M': 'W', 'N': 'N', 'O': 'O',
+   'P': 'Ԁ', 'Q': 'Q', 'R': 'R', 'S': 'S', 'T': '┴',
+   'U': '∩', 'V': 'Λ', 'W': 'M', 'X': 'X', 'Y': '⅄',
+   'Z': 'Z',
 
-    // Caractères accentués avec équivalents retournés
-    'é': 'ǝ́', 'è': 'ǝ̀', 'ê': 'ǝ̂', 'ë': 'ǝ̈',
-    'à': 'ɐ̀', 'â': 'ɐ̂', 'ä': 'ɐ̈',
-    'ù': 'ǹ', 'û': 'n̂', 'ü': 'n̈',
-    'ï': 'ı̈', 'î': 'ı̂',
-    'ô': 'ô', 'ö': 'ö',
-    'ç': 'ɔ̧',
+   // Caractères accentués avec équivalents retournés
+   'é': 'ǝ́', 'è': 'ǝ̀', 'ê': 'ǝ̂', 'ë': 'ǝ̈',
+   'à': 'ɐ̀', 'â': 'ɐ̂', 'ä': 'ɐ̈',
+   'ù': 'ǹ', 'û': 'n̂', 'ü': 'n̈',
+   'ï': 'ı̈', 'î': 'ı̂',
+   'ô': 'ô', 'ö': 'ö',
+   'ç': 'ɔ̧',
 
-    // Majuscules accentuées
-    'É': 'Ǝ́', 'È': 'Ǝ̀', 'Ê': 'Ǝ̂', 'Ë': 'Ǝ̈',
-    'À': '∀̀', 'Â': '∀̂', 'Ä': '∀̈',
-    'Ù': '∩̀', 'Û': '∩̂', 'Ü': '∩̈',
-    'Ï': 'Ï', 'Î': 'Î',
-    'Ô': 'Ô', 'Ö': 'Ö',
-    'Ç': 'Ɔ̧',
+   // Majuscules accentuées
+   'É': 'Ǝ́', 'È': 'Ǝ̀', 'Ê': 'Ǝ̂', 'Ë': 'Ǝ̈',
+   'À': '∀̀', 'Â': '∀̂', 'Ä': '∀̈',
+   'Ù': '∩̀', 'Û': '∩̂', 'Ü': '∩̈',
+   'Ï': 'Ï', 'Î': 'Î',
+   'Ô': 'Ô', 'Ö': 'Ö',
+   'Ç': 'Ɔ̧',
 
-    // Nombres et ponctuation
-    '0': '0', '1': 'Ɩ', '2': 'ᄅ', '3': 'Ɛ', '4': 'ㄣ',
-    '5': 'ϛ', '6': '9', '7': 'ㄥ', '8': '8', '9': '6',
-    '.': '˙', ',': '\'', '\'': ',', '"': '„', '`': ',',
-    '?': '¿', '!': '¡', '[': ']', ']': '[', '(': ')',
-    ')': '(', '{': '}', '}': '{', '<': '>', '>': '<',
-    '&': '⅋', '_': '‾',
+   // Smileys
+   ':)': '(:', 
+   ':(': '):', 
+   ':D': 'C:', 
+   ':P': 'd:', 
+   ';)': '(;',
+   ':-)': '(-:', 
+   ':-(': ')-:', 
+   ':-D': 'C-:', 
+   ':-P': 'd-:', 
+   ';-)': '(-;',
 
-    // Espaces et retours à la ligne
-    ' ': ' ', '\n': '\n', '\r': '\r', '\t': '\t'
+   // Nombres et ponctuation
+   '0': '0', '1': 'Ɩ', '2': 'ᄅ', '3': 'Ɛ', '4': 'ㄣ',
+   '5': 'ϛ', '6': '9', '7': 'ㄥ', '8': '8', '9': '6',
+   '.': '˙', ',': '\'', '\'': ',', '"': '„', '`': ',',
+   '?': '¿', '!': '¡', '[': ']', ']': '[', '(': ')',
+   ')': '(', '{': '}', '}': '{', '<': '>', '>': '<',
+   '&': '⅋', '_': '‾',
+
+   // Espaces et retours à la ligne
+   ' ': ' ', '\n': '\n', '\r': '\r', '\t': '\t'
 };
-            const handleTextChange = (e) => {
-                setInputText(e.target.value);
-            };
+           const handleTextChange = (e) => {
+               setInputText(e.target.value);
+           };
 
-            const getFlippedText = () => {
-                return inputText
-                    .split('')
-                    .map(char => flipTable[char] || char)
-                    .reverse()
-                    .join('');
-            };
+           const getFlippedText = () => {
+               return inputText
+                   .split('')
+                   .map(char => flipTable[char] || char)
+                   .reverse()
+                   .join('');
+           };
 
-            const handleCopyClick = async () => {
-                try {
-                    await navigator.clipboard.writeText(getFlippedText());
-                    alert('Texte retourné copié !');
-                } catch (err) {
-                    alert('Erreur lors de la copie');
-                }
-            };
+           const handleCopyClick = async () => {
+               try {
+                   await navigator.clipboard.writeText(getFlippedText());
+                   alert('Texte retourné copié !');
+               } catch (err) {
+                   alert('Erreur lors de la copie');
+               }
+           };
 
-            return (
-                <div className="max-w-md mx-auto md:max-w-2xl lg:max-w-3xl">
-                    <div className="bg-white rounded-lg shadow p-2 sm:p-4 mb-4">
-                        <div className="flex flex-col items-center mb-2 sm:mb-4">
-                            
-                            <h1 className="impact-title text-xl sm:text-3xl md:text-4xl text-fnsea text-center tracking-wide mb-2">
-                                RetournonsLeMonde
-                            </h1>
-                            <p className="text-center text-fnsea text-xs sm:text-sm tracking-wide px-2">
-                                Retournez votre texte en signe de protestation pour soutenir nos agriculteurs
-                            </p>
-                        </div>
-                    </div>
+           return (
+               <div className="max-w-md mx-auto md:max-w-2xl lg:max-w-3xl">
+                   <div className="bg-white rounded-lg shadow p-2 sm:p-4 mb-4">
+                       <div className="flex flex-col items-center mb-2 sm:mb-4">
+                           <h1 className="impact-title text-xl sm:text-3xl md:text-4xl text-fnsea text-center tracking-wide mb-2">
+                               RetournonsLeMonde
+                           </h1>
+                           <p className="text-center text-fnsea text-xs sm:text-sm tracking-wide px-2">
+                               Puisqu'ils marchent sur la tête, écrivons-leur à l'envers.
+                           </p>
+                       </div>
+                   </div>
 
-                    <div className="bg-white rounded-lg shadow p-2 sm:p-4">
-                        <div className="space-y-2 sm:space-y-4">
-                            <div>
-                                <label className="block mb-1 sm:mb-2 impact-text text-fnsea text-sm sm:text-base">
-                                    Votre message de soutien :
-                                </label>
-                                <textarea
-                                    value={inputText}
-                                    onChange={handleTextChange}
-                                    className="w-full h-24 sm:h-32 p-2 border border-fnsea rounded text-sm"
-                                    placeholder="Écrivez ou collez votre texte ici..."
-                                />
-                            </div>
-                            
-                            <div>
-                                <label className="block mb-1 sm:mb-2 impact-text text-fnsea text-sm sm:text-base">
-                                    Message retourné :
-                                </label>
-                                <div className="relative">
-                                    <textarea
-                                        value={getFlippedText()}
-                                        readOnly
-                                        className="w-full h-24 sm:h-32 p-2 border border-fnsea rounded bg-gray-50 text-sm"
-                                    />
-                                    <button
-                                        onClick={handleCopyClick}
-                                        className="absolute right-2 bottom-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-fnsea text-white rounded hover:bg-opacity-90 impact-title text-sm"
-                                    >
-                                        COPIER
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   <div className="bg-white rounded-lg shadow p-2 sm:p-4">
+                       <div className="space-y-2 sm:space-y-4">
+                           <div>
+                               <label className="block mb-1 sm:mb-2 impact-text text-fnsea text-sm sm:text-base">
+                                   Votre message de soutien :
+                               </label>
+                               <textarea
+                                   value={inputText}
+                                   onChange={handleTextChange}
+                                   className="w-full h-24 sm:h-32 p-2 border border-fnsea rounded text-sm"
+                                   placeholder="Non au Mercosur ! L'Europe passoire détruit notre agriculture :("
+                               />
+                           </div>
+                           
+                           <div>
+                               <label className="block mb-1 sm:mb-2 impact-text text-fnsea text-sm sm:text-base">
+                                   Message retourné :
+                               </label>
+                               <div className="relative">
+                                   <textarea
+                                       value={getFlippedText()}
+                                       readOnly
+                                       className="w-full h-24 sm:h-32 p-2 border border-fnsea rounded bg-gray-50 text-sm"
+                                   />
+                                   <button
+                                       onClick={handleCopyClick}
+                                       className="absolute right-2 bottom-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-fnsea text-white rounded hover:bg-opacity-90 impact-title text-sm"
+                                   >
+                                       COPIER
+                                   </button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
 
-                    <div className="mt-2 sm:mt-4 text-center">
-    <p className="impact-text text-xs sm:text-sm text-fnsea">
-        Ensemble, retournons la situation
-    </p>
-</div>
-                </div>
-            );
-        };
+                   <div className="mt-2 sm:mt-4 text-center">
+                       <p className="impact-text text-xs sm:text-sm text-fnsea mb-4">
+                           Ensemble, retournons la situation
+                       </p>
+                       <img 
+                           src="./FNSEA.png"
+                           alt="Logo FNSEA" 
+                           className="h-12 sm:h-16 mx-auto"
+                       />
+                   </div>
+               </div>
+           );
+       };
 
-        ReactDOM.render(<TextReverser />, document.getElementById('root'));
-    </script>
+       ReactDOM.render(<TextReverser />, document.getElementById('root'));
+   </script>
 </body>
 </html>
